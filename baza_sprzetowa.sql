@@ -40,7 +40,7 @@ kolor varchar(20)
 /*PL: widoki pomocnicze do tabeli kajaki, 
 ANG: table views for filtering by type: 
 kajaki_gorskie - whitewater  
-kajaki_morskie - sea */
+kajaki_morskie - sea kayaks*/
 
 create view kajaki_gorskie as select id_kajaka, marka, model, wyporność, kolor from kajaki where id_kajaka LIKE 'KG%'; 
 create view kajaki_morskie as select id_kajaka, marka, model, kolor from kajaki where id_kajaka LIKE 'KM%';
@@ -115,4 +115,26 @@ foreign key (id_kasku_db) references kaski(id_kasku_db),
 foreign key (id_fartucha_db) references fartuchy(id_fartucha_db),
 foreign key (id_rzutki_db) references asekuracja(id_rzutki_db)
 ); 
+
+
+
+
+
+#ZAPYTANIA DO BAZY 
+
+# Zapytanie o dostępność kajaka w bazie 
+SELECT 
+    id_kajaka_db, id_kajaka, marka, model,
+    CASE
+        WHEN
+            (rez_start <= '2017-11-15'
+                AND rez_end >= '2017-11-10')
+                OR (rez_start >= '2017-11-10'
+                AND rez_end <= '2017-11-15')
+        THEN
+            'Zajety'
+        ELSE 'Wolny'
+    END AS rezerwacja
+FROM
+    kajaki;
 

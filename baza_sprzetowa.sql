@@ -1,7 +1,6 @@
 create database baza_sprzetowa;
 use baza_sprzetowa;
 
-
 create table klubowicze(
 id_user int primary key auto_increment unique,
 imie varchar(30) not null,
@@ -23,9 +22,12 @@ email varchar(30) not null unique,
 foreign key (email) references klubowicze(email)
 );
 
+
+
 /* PL: id_kajaka_db dla bazy danych, id_kajaka dla użytkowników (sprzet jest fizycznie opisany danym id) 
 Pozostaly sprzet tez jest analogicznie opisany dwoma id wg. pow. zasady 
 ANG: id_kajaka_db for database use, id_kajaka is a reference for users (gear is marked with this id's) */
+
 
 create table kajaki (
 id_kajaka_db int primary key auto_increment unique,
@@ -34,8 +36,11 @@ marka varchar(20),
 model varchar(20),
 typ text,
 wyporność smallint,
-kolor varchar(20)
+kolor varchar(20),
+rez_start date,
+rez_end date
 );
+
 
 /*PL: widoki pomocnicze do tabeli kajaki, 
 ANG: table views for filtering by type: 
@@ -44,6 +49,8 @@ kajaki_morskie - sea kayaks*/
 
 create view kajaki_gorskie as select id_kajaka, marka, model, wyporność, kolor from kajaki where id_kajaka LIKE 'KG%'; 
 create view kajaki_morskie as select id_kajaka, marka, model, kolor from kajaki where id_kajaka LIKE 'KM%';
+create view kajaki_zwalkowe as select id_kajaka, marka, model, kolor from kajaki where id_kajaka LIKE 'KZ%';
+create view kanadyjki as select id_kajaka, marka, model, kolor from kajaki where id_kajaka LIKE 'KK%';
 
 
 create table wiosla (
@@ -52,9 +59,10 @@ id_wiosla varchar(6) not null unique,
 marka varchar(20),
 model varchar(20),
 typ text,
-kat tinyint
+kat tinyint,
+rez_start date,
+rez_end date
 );
-
 
 create table kamizelki (
 id_kamizelki_db int primary key auto_increment unique,
@@ -62,7 +70,9 @@ id_kamizelki varchar(7) not null unique,
 marka varchar (20),
 model varchar(20),
 rozmiar varchar(4),
-kolor varchar(20)
+kolor varchar(20),
+rez_start date,
+rez_end date
 );
 
 
@@ -73,7 +83,9 @@ marka varchar (20),
 model varchar(20),
 rozmiar varchar(4),
 kolor varchar(20),
-garda ENUM('T', 'N') not null
+garda ENUM('T', 'N') not null,
+rez_start date,
+rez_end date
 );
 
 
@@ -83,7 +95,9 @@ id_fartucha varchar(6) not null unique,
 marka varchar (20),
 model varchar (20),
 rozmiar varchar(4),
-rozmiar_kokpitu varchar(8)
+rozmiar_kokpitu varchar(8),
+rez_start date,
+rez_end date
 ); 
 
 
@@ -92,20 +106,23 @@ id_rzutki_db int primary key auto_increment unique,
 id_rzutki varchar(6) not null unique,
 marka varchar(20),
 model varchar(20),
-długosc tinyint
+dlugosc tinyint,
+rez_start date,
+rez_end date
 ); 
+
 
 create table rezerwacje(
 id_rezerwacje int auto_increment unique,
 data_rez_start date,
 data_rez_end date,
 id_user INT NOT NULL,
-id_kajaka_db INT NOT NULL,
-id_wiosla_db INT NOT NULL,
-id_kamizelki_db INT NOT NULL,
-id_kasku_db INT NOT NULL,
-id_fartucha_db INT NOT NULL,
-id_rzutki_db INT NOT NULL,
+id_kajaka_db INT,
+id_wiosla_db INT,
+id_kamizelki_db INT,
+id_kasku_db INT,
+id_fartucha_db INT,
+id_rzutki_db INT,
 primary key (id_rezerwacje),
 foreign key (id_user) references klubowicze(id_user),
 foreign key (id_kajaka_db) references kajaki(id_kajaka_db),
@@ -117,24 +134,4 @@ foreign key (id_rzutki_db) references asekuracja(id_rzutki_db)
 ); 
 
 
-
-
-
-#ZAPYTANIA DO BAZY 
-
-# Zapytanie o dostępność kajaka w bazie 
-SELECT 
-    id_kajaka_db, id_kajaka, marka, model,
-    CASE
-        WHEN
-            (rez_start <= '2017-11-15'
-                AND rez_end >= '2017-11-10')
-                OR (rez_start >= '2017-11-10'
-                AND rez_end <= '2017-11-15')
-        THEN
-            'Zajety'
-        ELSE 'Wolny'
-    END AS rezerwacja
-FROM
-    kajaki;
 

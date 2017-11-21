@@ -118,4 +118,13 @@ INSERT INTO asekuracja values (7, 'R-007', 'HF', 'Compact', '20', null, null );
 INSERT INTO asekuracja values (8, 'R-008', 'HF', 'Compact', '20', null, null );
 INSERT INTO asekuracja values (9, 'R-009', 'Hiko', 'Throw 25', '25', null, null );
 INSERT INTO asekuracja values (10, 'R-010', 'Hiko', 'Throw 25', '25', null, null );
-INSERT INTO asekuracja values (11, 'R-011', 'Hiko', 'Throw 25', '25', null, null );
+INSERT INTO asekuracja values (11, 'R-011', 'Hiko', 'Throw 25', '25', null, null ); 
+
+
+#NOWA REZERWACJA
+insert into rezerwacje values (1, '2017-11-11' ,'2017-11-11',2, 'KG-007', 'WG-006', 'KaG-005', 'S-008', 'F-004' , 'R-002');   
+
+
+#DANE DO LOGOWANIA
+insert into logowanie values (1,'logowanie','zoha@foogle.com');
+insert into logowanie values (2,'rooB_Rumor', 'cicho_tam@gamil.com');

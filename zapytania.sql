@@ -45,6 +45,7 @@ SELECT
     END AS rezerwacja
 FROM     kamizelki;
 
+
 SELECT 
     id_kasku_db, id_kasku, marka, model,
     CASE
@@ -62,7 +63,8 @@ FROM    kaski;
     
     
 SELECT 
-    id_fartucha_db, id_fartucha, marka, model,
+    id_fartucha_db, id_fartucha, marka,
+    model,
     CASE
         WHEN
             (rez_start <= '2017-11-15'
@@ -90,4 +92,22 @@ SELECT
         ELSE 'Wolny'
     END AS rezerwacja
 FROM    asekuracja;
-    
+
+#Logowanie - sprawwdzenie czy zgadza sie email i hasło
+SELECT 
+k.imie, k.nazwisko, k.email as email
+FROM
+    klubowicze as k
+    JOIN
+    logowanie as l
+    where l.haslo COLLATE utf8_bin = 'rooB_Rumor' and (k.email = l.email);
+
+
+
+
+
+  
+
+
+
+#czy sprzęt jest zarezerwowowany

@@ -93,7 +93,9 @@ SELECT
     END AS rezerwacja
 FROM    asekuracja;
 
-#Logowanie - sprawwdzenie czy zgadza sie email i hasło
+
+
+#Logowanie - sprawdzenie czy zgadza sie email i hasło
 SELECT 
 k.imie, k.nazwisko, k.uprawnienia, k.email as email
 FROM
@@ -101,6 +103,17 @@ FROM
     JOIN
     logowanie as l
     where l.haslo COLLATE utf8_bin = 'rooB_Rumor' and (k.email = l.email);
+
+#Logowanie - zapytanie dla usera bez nadanych uprawnień
+SELECT 
+k.imie, k.nazwisko, k.uprawnienia, k.email as email
+FROM
+    klubowicze as k
+    JOIN
+    logowanie as l
+    where l.haslo COLLATE utf8_bin = '1q2w3e4r' and (k.email = l.email);    
+
+
 
 #Historia zamówień
 SELECT 

@@ -1,4 +1,4 @@
-#INSERT klubowicze. Uprawnienia uzytkownikow 1=klubowicz, 2=sprzetowiec, 3=zarząd
+#INSERT klubowicze. Uprawnienia uzytkownikow 1=klubowicz / user, 2=sprzetowiec/root
 INSERT INTO klubowicze VALUES (1, 'Urszula', 'Rak', 'Rurka','K','1986-07-13', '69', 'rak@adresmailowy.com', '321654987', '1' );
 INSERT INTO klubowicze VALUES (2, 'Marcin', 'Hoinka', 'Zoha','M','1984-08-10','79', 'zoha@foogle.com', '621654987', '1' );
 INSERT INTO klubowicze VALUES (3, 'Piotr', null, 'Stachu','M',null , '81' , 'stachu@adresmailowy.com', null, '2' );
@@ -11,6 +11,7 @@ INSERT INTO klubowicze VALUES (9, 'Maciej', 'Krzycz',null,'M', '1993-02-09',null
 INSERT INTO klubowicze VALUES (10, 'Asia', 'Król' , '','K', null,'89', 'aloes@gamil.com', null,'1');
 INSERT INTO klubowicze VALUES (11, 'Julia', null , 'Paczula','K', null,null, 'paczula@gamil.com', null ,'1');
 INSERT INTO klubowicze VALUES (12, 'Wojtek', null , 'Cudak','M', null,null, 'cudak@gamil.com', null ,'1');
+
 
 #KAJAKI
 INSERT INTO kajaki VALUES (1, 'KG-001', 'Prijon', 'Pure', 'górski', 320, 'czerwony',null,null );
@@ -34,7 +35,6 @@ INSERT INTO kajaki VALUES (18, 'KK-001', 'Old Town', 'Penobscot', 'nizinny', 0, 
 INSERT INTO kajaki VALUES (19, 'KK-002', 'Prijon', 'Horton', 'nizinny', 0, 'czerwony',null,null );
 INSERT INTO kajaki VALUES (20, 'KG-012', 'WAKA', 'Gangsta', 'górski', '360', null,'2017-11-15','2017-12-17');
 INSERT INTO kajaki VALUES (21, 'KG-013', 'WAKA', 'Tuna', null, '340', 'żółty', '2017-11-29','2017-12-06');
-
 
 
 #WIOSŁA
@@ -95,6 +95,7 @@ INSERT INTO kaski values (15, 'S-015', 'Galasport', 'Polo Elite', 'M', 'czarny' 
 INSERT INTO kaski values (16, 'S-016', 'Galasport', 'Polo Elite', 'L', 'czarny' , 'T', null, null  );  
 INSERT INTO kaski values (17, 'S-017', 'Galasport', 'Polo Elite', 'M', 'czarny' , 'T', null, null  );
 
+
 #FARTUCHY
 INSERT INTO fartuchy values (1, 'F-001', 'Hiko', 'Rhino', 'L', '82','2017-11-11','2017-11-11');  
 INSERT INTO fartuchy values (2, 'F-002', 'Hiko', 'Rhino', 'XL', '82','2017-11-07','2017-11-10'); 
@@ -106,6 +107,7 @@ INSERT INTO fartuchy values (7, 'F-007', 'Hiko', 'Trek Bungee', 'L', '80-90', nu
 INSERT INTO fartuchy values (8, 'F-008', 'Hiko', 'Trek Bungee', 'M', '80-90', null, null );
 INSERT INTO fartuchy values (9, 'F-009', 'Hiko', 'Trek Bungee', 'L', '87-98', null, null );
 INSERT INTO fartuchy values (10, 'F-010', 'Hiko', 'Trek Bungee', 'M', '87-98', null, null );
+
 
 #RZUTKI
 INSERT INTO asekuracja values (1, 'R-001', 'HF', 'Compact', '20','2017-11-29','2017-12-06'); 
@@ -131,3 +133,4 @@ insert into rezerwacje values (4, '2017-11-11' ,'2017-11-11', 2 ,'KG-007', 'WG-0
 #DANE DO LOGOWANIA
 insert into logowanie values (1,'logowanie','zoha@foogle.com');
 insert into logowanie values (2,'rooB_Rumor', 'cicho_tam@gamil.com');
+insert into logowanie values (3, '1q2w3e4r' ,'żaba@oten.pl'); 

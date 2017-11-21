@@ -95,16 +95,59 @@ FROM    asekuracja;
 
 #Logowanie - sprawwdzenie czy zgadza sie email i hasło
 SELECT 
-k.imie, k.nazwisko, k.email as email
+k.imie, k.nazwisko, k.uprawnienia, k.email as email
 FROM
     klubowicze as k
     JOIN
     logowanie as l
     where l.haslo COLLATE utf8_bin = 'rooB_Rumor' and (k.email = l.email);
 
+#Historia zamówień
+SELECT 
+    r.data_rez_start, r.data_rez_end,
+    k.imie, k.nazwisko, r.id_kajaka, r.id_wiosla, r.id_kamizelki, r.id_kasku, r.id_fartucha, r.id_rzutki
+FROM
+    rezerwacje AS r
+        NATURAL JOIN
+    klubowicze AS k
+ORDER BY r.data_rez_start DESC;
 
 
+#HISTORIA zamowień dla kajaków górskich
+SELECT 
+    r.data_rez_start, r.data_rez_end,
+    k.imie, k.nazwisko, r.id_kajaka, r.id_wiosla, r.id_kamizelki, r.id_kasku, r.id_fartucha, r.id_rzutki
+FROM
+    rezerwacje AS r
+        NATURAL JOIN
+    klubowicze AS k
+WHERE
+    id_kajaka LIKE 'KG%'
+ORDER BY r.data_rez_start DESC;
 
+#HISTORIA zamowień dla kajaków morskich
+SELECT 
+    r.data_rez_start, r.data_rez_end,
+    k.imie, k.nazwisko, r.id_kajaka, r.id_wiosla, r.id_kamizelki, r.id_kasku, r.id_fartucha, r.id_rzutki
+FROM
+    rezerwacje AS r
+        NATURAL JOIN
+    klubowicze AS k
+WHERE
+    id_kajaka LIKE 'KM%'
+ORDER BY r.data_rez_start DESC;
+
+#HISTORIA zamowień dla kanadyjek
+SELECT 
+    r.data_rez_start, r.data_rez_end,
+    k.imie, k.nazwisko, r.id_kajaka, r.id_wiosla, r.id_kamizelki, r.id_kasku, r.id_fartucha, r.id_rzutki
+FROM
+    rezerwacje AS r
+        NATURAL JOIN
+    klubowicze AS k
+WHERE
+    id_kajaka LIKE 'KK%'
+ORDER BY r.data_rez_start DESC;
 
   
 

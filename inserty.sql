@@ -3,12 +3,12 @@ INSERT INTO klubowicze VALUES (1, 'Urszula', 'Rak', 'Rurka','K','1986-07-13', '6
 INSERT INTO klubowicze VALUES (2, 'Marcin', 'Hoinka', 'Zoha','M','1984-08-10','79', 'zoha@foogle.com', '621654987', '1' );
 INSERT INTO klubowicze VALUES (3, 'Piotr', null, 'Stachu','M',null , '81' , 'stachu@adresmailowy.com', null, '2' );
 INSERT INTO klubowicze VALUES (4, 'Piotr', null, 'Żaba','M','1985-01-29',null, 'żaba@oten.pl', ' ', null );
-INSERT INTO klubowicze VALUES (5, 'Piotr', 'Pilawski', null ,'M',null , '89' , 'piotrek@adresmailowy.com', null, '3' );
+INSERT INTO klubowicze VALUES (5, 'Piotr', 'Pilawski', null ,'M',null , '89' , 'piotrek@adresmailowy.com', null, '2' );
 INSERT INTO klubowicze VALUES (6, 'Bożena', null, null,'K', null, null, 'bosz_en@oten.pl',null ,'1');
 INSERT INTO klubowicze VALUES (7, 'Maria', 'Hoinka' , null,'K', null,null,'ysia@gamil.com', null,'1');
 INSERT INTO klubowicze VALUES (8, 'Adam', 'Romek' , null,'M', '1985-02-09','81', 'niedam@foogle.com', '236456434', null);
 INSERT INTO klubowicze VALUES (9, 'Maciej', 'Krzycz',null,'M', '1993-02-09',null, 'cicho_tam@gamil.com', '987602000' ,'1');
-INSERT INTO klubowicze VALUES (10, 'Asia', 'Król' , '','K', null,'89', 'aloes@gamil.com', null,'3');
+INSERT INTO klubowicze VALUES (10, 'Asia', 'Król' , '','K', null,'89', 'aloes@gamil.com', null,'1');
 INSERT INTO klubowicze VALUES (11, 'Julia', null , 'Paczula','K', null,null, 'paczula@gamil.com', null ,'1');
 INSERT INTO klubowicze VALUES (12, 'Wojtek', null , 'Cudak','M', null,null, 'cudak@gamil.com', null ,'1');
 
@@ -122,7 +122,10 @@ INSERT INTO asekuracja values (11, 'R-011', 'Hiko', 'Throw 25', '25', null, null
 
 
 #NOWA REZERWACJA
-insert into rezerwacje values (1, '2017-11-11' ,'2017-11-11',2, 'KG-007', 'WG-006', 'KaG-005', 'S-008', 'F-004' , 'R-002');   
+insert into rezerwacje values (1, '2015-05-01' ,'2015-05-10', 9 ,'KG-003', 'WG-005', null,null, null, 'R-002');
+insert into rezerwacje values (2, '2015-07-11' ,'2015-07-18', 2 ,'KG-007', 'WG-006', 'KaG-005', null, null , 'R-005');
+insert into rezerwacje values (3, '2016-08-03' ,'2016-08-14', 11 ,'KM-001', 'WN-003', 'KaN-002', null, 'F-010' , null);
+insert into rezerwacje values (4, '2017-11-11' ,'2017-11-11', 2 ,'KG-007', 'WG-006', 'KaG-005', 'S-008', 'F-004' , 'R-002'); 
 
 
 #DANE DO LOGOWANIA

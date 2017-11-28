@@ -28,8 +28,9 @@ SELECT
             'Zajety'
         ELSE 'Wolny'
     END AS rezerwacja
-FROM kajaki 
-group by id_kajaka having rezerwacja = 'Wolny';
+FROM kajaki
+GROUP BY id_kajaka
+HAVING rezerwacja = 'Wolny';
 
 
     
@@ -178,8 +179,18 @@ WHERE
     id_kajaka LIKE 'KK%'
 ORDER BY r.data_rez_start DESC;
 
-  
 
+#Zapytanie o liste zajetych rezerwacji w danym okresie
 
-
-#czy sprzęt jest zarezerwowowany
+SELECT 
+     id_user, data_rez_start, data_rez_end, id_kajaka, id_wiosla, id_kamizelki, id_kasku, id_fartucha, id_rzutki,
+    CASE
+        WHEN
+            (data_rez_start <= '2017-11-16' AND data_rez_end >= '2017-11-10')
+                OR (data_rez_start >= '2017-11-10' AND data_rez_end <= '2017-11-16') 
+		THEN 'Zajety'
+        ELSE 'Wolny'
+    END AS dostepnosc
+FROM rezerwacje 
+GROUP BY data_rez_end DESC
+HAVING dostepnosc='Zajety';

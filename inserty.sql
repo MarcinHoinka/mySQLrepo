@@ -11,6 +11,7 @@ INSERT INTO klubowicze VALUES (9, 'Maciej', 'Krzycz',null,'M', '1993-02-09',null
 INSERT INTO klubowicze VALUES (10, 'Asia', 'Król' , '','K', null,'89', 'aloes@gamil.com', null,'1');
 INSERT INTO klubowicze VALUES (11, 'Julia', null , 'Paczula','K', null,null, 'paczula@gamil.com', null ,'1');
 INSERT INTO klubowicze VALUES (12, 'Wojtek', null , 'Cudak','M', null,null, 'cudak@gamil.com', null ,'1');
+INSERT INTO klubowicze VALUES (13, 'Anna', null , 'Qń','K', null,null, 'konik@biegunach.com', null ,'1');
 
 
 #KAJAKI
@@ -128,9 +129,15 @@ insert into rezerwacje values (1, '2015-05-01' ,'2015-05-10', 9 ,'KG-003', 'WG-0
 insert into rezerwacje values (2, '2015-07-11' ,'2015-07-18', 2 ,'KG-007', 'WG-006', 'KaG-005', null, null , 'R-005');
 insert into rezerwacje values (3, '2016-08-03' ,'2016-08-14', 11 ,'KM-001', 'WN-003', 'KaN-002', null, 'F-010' , null);
 insert into rezerwacje values (4, '2017-11-11' ,'2017-11-11', 2 ,'KG-007', 'WG-006', 'KaG-005', 'S-008', 'F-004' , 'R-002'); 
-
+insert into rezerwacje values (5, '2017-11-16' ,'2017-11-18', 13 ,'KG-007', 'WG-006', 'KaG-005', null, null , 'R-005');
 
 #DANE DO LOGOWANIA
-insert into logowanie values (1,'logowanie','zoha@foogle.com');
-insert into logowanie values (2,'rooB_Rumor', 'cicho_tam@gamil.com');
-insert into logowanie values (3, '1q2w3e4r' ,'żaba@oten.pl'); 
+INSERT INTO logowanie VALUES (1,'logowanie', 'zoha@foogle.com');
+INSERT INTO logowanie VALUES (2,'rooB_Rumor', 'cicho_tam@gamil.com');
+INSERT INTO logowanie VALUES (3,'1q2w3e4r', 'żaba@oten.pl'); 
+INSERT INTO logowanie VALUES (4,'test', 'ysia@gamil.com');
+# Adam niema uprawnień 
+INSERT INTO logowanie VALUES (5,'test1', 'niedam@foogle.com');
+
+#sprzetowiec
+INSERT INTO logowanie VALUES (6, 'stachu','stachu@adresmailowy.com');

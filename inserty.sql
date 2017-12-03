@@ -12,6 +12,8 @@ INSERT INTO klubowicze VALUES (10, 'Asia', 'Król' , '','K', null,'89', 'aloes@g
 INSERT INTO klubowicze VALUES (11, 'Julia', null , 'Paczula','K', null,null, 'paczula@gamil.com', null ,'1');
 INSERT INTO klubowicze VALUES (12, 'Wojtek', null , 'Cudak','M', null,null, 'cudak@gamil.com', null ,'1');
 INSERT INTO klubowicze VALUES (13, 'Anna', null , 'Qń','K', null,null, 'konik@biegunach.com', null ,'1');
+INSERT INTO klubowicze VALUES (14, 'Łukasz', null , 'Aniol','M', null,null, 'admin@op.pl', null ,'2');
+INSERT INTO klubowicze VALUES (15, 'Anna', null , 'Qń','K', null,null, 'konik@op.pl', null ,'1');
 
 
 #KAJAKI
@@ -135,9 +137,13 @@ insert into rezerwacje values (5, '2017-11-16' ,'2017-11-18', 13 ,'KG-007', 'WG-
 INSERT INTO logowanie VALUES (1,'logowanie', 'zoha@foogle.com');
 INSERT INTO logowanie VALUES (2,'rooB_Rumor', 'cicho_tam@gamil.com');
 INSERT INTO logowanie VALUES (3,'1q2w3e4r', 'żaba@oten.pl'); 
-INSERT INTO logowanie VALUES (4,'test', 'ysia@gamil.com');
+INSERT INTO logowanie VALUES (4,'ysia', 'ysia@gamil.com');
 # Adam niema uprawnień 
 INSERT INTO logowanie VALUES (5,'test1', 'niedam@foogle.com');
-
 #sprzetowiec
-INSERT INTO logowanie VALUES (6, 'stachu','stachu@adresmailowy.com');
+INSERT INTO logowanie VALUES (6, 'stachu','stachu@adresmailowy.com'); 
+INSERT INTO logowanie VALUES (7, 'admin','admin@op.pl');
+
+
+#zmiany w logowaniu (hasło)
+UPDATE logowanie SET haslo = 'logowanie' WHERE email = 'niedam@foogle.com';

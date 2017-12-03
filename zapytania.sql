@@ -194,3 +194,58 @@ SELECT
 FROM rezerwacje 
 GROUP BY data_rez_end DESC
 HAVING dostepnosc='Zajety';
+
+
+# Historia rezerwacji z info o klubowiczu
+SELECT 
+    r.data_rez_start, r.data_rez_end,
+    k.imie, k.nazwisko, r.id_kajaka, r.id_wiosla, r.id_kamizelki, r.id_kasku, r.id_fartucha, r.id_rzutki
+FROM
+    rezerwacje AS r
+        NATURAL JOIN
+    klubowicze AS k
+ORDER BY r.data_rez_start DESC; 
+
+
+
+
+
+#id kajaka wolnego w danym terminie w REZERWACJACH 
+
+SELECT 
+    id_kajaka,
+    CASE
+        WHEN
+            (data_rez_start <= '2017-11-16'
+                AND data_rez_end >= '2017-11-10'
+                AND id_kajaka IS NOT NULL)
+                OR (data_rez_start >= '2017-11-10'
+                AND data_rez_end <= '2017-11-16'
+                AND id_kajaka IS NOT NULL)
+        THEN
+            'Zajety'
+        ELSE 'Wolny'
+    END AS rezerwacja
+FROM
+    rezerwacje
+GROUP BY rezerwacja
+HAVING rezerwacja = 'Zajety';
+
+
+
+
+#id rzutki wolnej w danym terminie w REZERWACJACH 
+
+SELECT 
+    id_rzutki, 
+    CASE
+        WHEN
+           (data_rez_start <= '2017-11-16' AND data_rez_end >= '2017-11-10' AND id_rzutki is not null)
+                OR (data_rez_start >= '2017-11-10' AND data_rez_end <= '2017-11-16' AND id_rzutki is not null) 
+			
+        THEN
+            'Zajety'
+        ELSE 'Wolny'
+    END AS rezerwacja
+FROM    rezerwacje group by rezerwacja having rezerwacja = 'Zajety';
+

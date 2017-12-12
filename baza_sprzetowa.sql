@@ -1,5 +1,9 @@
 create database baza_sprzetowa;
 use baza_sprzetowa;
+ALTER SCHEMA baza_sprzetowa  DEFAULT COLLATE utf8_polish_ci;
+
+ALTER DATABASE baza_sprzetowa CHARACTER SET utf8 COLLATE utf8_bin;
+
 
 CREATE TABLE klubowicze (
     id_user INT PRIMARY KEY AUTO_INCREMENT UNIQUE,
